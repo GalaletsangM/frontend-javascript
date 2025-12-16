@@ -12,12 +12,14 @@ var student2 = {
     location: "Georgia",
 };
 var studentsList = [student1, student2];
+//console.log(studentsList[0].firstName);
 //Get table body
 var tableBody = document.getElementById("tableBody");
 //Loop through array and add rows
 //console.log(studentsList[0].firstName);
-studentsList.foreach(function (student) {
+studentsList.forEach(function (student) {
     var row = document.createElement("tr");
-    var nameCell = document.createElement("td");
-    nameCell.textContent = student.name;
+    //console.log(student.firstName);
+    row.innerHTML = "\n  <td>".concat(student.firstName, "</td>\n  <td>").concat(student.location, "</td>");
+    tableBody.appendChild(row);
 });

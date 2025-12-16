@@ -19,18 +19,22 @@ const student2: Students = {
   location: "Georgia",
 };
 
-let studentsList:any = [student1, student2];
+let studentsList = [student1, student2];
+//console.log(studentsList[0].firstName);
 
 //Get table body
-const tableBody = document.getElementById("tableBody");
+const tableBody = document.getElementById("tableBody") as HTMLTableSectionElement;
 
 //Loop through array and add rows
 //console.log(studentsList[0].firstName);
-studentsList.foreach(student => {
+studentsList.forEach((student) => {
   const row = document.createElement("tr");
+  //console.log(student.firstName);
+  row.innerHTML = `
+  <td>${student.firstName}</td>
+  <td>${student.location}</td>`;
 
-  const nameCell = document.createElement("td");
-  nameCell.textContent = student.name;
+  tableBody.appendChild(row);
 
 });
 
